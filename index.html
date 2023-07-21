@@ -16,6 +16,23 @@
 
     <button id="draw_grid_button">DRAW GRID</button>
 
+    <input type="file" id="choose_image_file" name="choose_image_file">
+
+    <select id="grids_number_select">
+        <option value="2">Volvo</option>
+        <option value="3">Saab</option>
+        <option value="4">Mercedes</option>
+        <option value="5">Audi</option>
+    </select>
+
+    <script>
+        var select = document.getElementById("grids_number_select");
+        let options = ""
+        for(let i = 2; i < 17; i ++)
+        {options += `<option value="${i}">${i}</option>`;}
+        select.innerHTML = options;
+    </script>
+
     <main>
          <canvas id="canvas"></canvas>
     </main>
