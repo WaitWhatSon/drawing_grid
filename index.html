@@ -9,37 +9,84 @@
     <link rel="stylesheet" href="./tailwind.min.css">
     <!-- TODO: icon -->
     <link rel="icon" href="./favicon.ico" type="image/x-icon">
-  </head>
-  <body>
+</head>
 
-    <h1>Drawing grid online</h1> 
+<body>
 
-    <button id="draw_grid_button">DRAW GRID</button>
+    <div style="float: left">
 
-    <input type="file" id="choose_image_file" name="choose_image_file">
+        <h1><b>Drawing grid online</b></h1>
 
-    <select id="grids_number_select">
-        <option value="2">Volvo</option>
-        <option value="3">Saab</option>
-        <option value="4">Mercedes</option>
-        <option value="5">Audi</option>
-    </select>
+        <input type="file" id="choose_image_file" name="choose_image_file">
+
+        <div class="flex">
+            
+            X : <select id="grids_x_number_select"></select>
+
+            Y: <select id="grids_y_number_select"></select>
+
+            COLOR: 
+
+            <select id="stroke_color_select">
+                <option value="black">black</option>
+                <option value="white">white</option>
+                <option value="gray">gray</option>
+                <option value="red">red</option>
+                <option value="green">green</option>
+                <option value="blue">blue</option>
+                <option value="yellow">yellow</option>
+            </select>
+
+        </div>
+
+        <div>
+            
+            GRID THICKNESS:
+
+            <select id="line_width_select">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+            </select>
+
+            px
+
+        </div>
+
+        <button class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded" id="download_image">DOWNLOAD IMAGE</button>
+
+        <div>PREVIEW:</div>
+
+    </div>
 
     <script>
-        var select = document.getElementById("grids_number_select");
+        var select = document.getElementById("grids_x_number_select");
         let options = ""
-        for(let i = 2; i < 17; i ++)
-        {options += `<option value="${i}">${i}</option>`;}
+        for (let i = 2; i < 17; i++) { options += `<option value="${i}"${i == 5 ? ' selected' : ''}>${i}</option>`; }
         select.innerHTML = options;
+
+        var select_y = document.getElementById("grids_y_number_select");
+        let options_y = ""
+        for (let i = 2; i < 17; i++) { options_y += `<option value="${i}"${i == 5 ? ' selected' : ''}>${i}</option>`; }
+        select_y.innerHTML = options_y;
     </script>
 
     <main>
-         <canvas id="canvas"></canvas>
+        <div class="p-10 w-fit">
+            <canvas id="canvas"></canvas>
+        </div>
+
     </main>
 
+    <script src="index.js"></script>
 
-	<script src="index.js"></script>
-
-  </body>
+</body>
 
 </html>
